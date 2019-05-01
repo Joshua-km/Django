@@ -1,0 +1,18 @@
+{% extends "wiki/base.html"%}
+{% load static %}
+
+{% block content %}
+<h2>{{title}}</h2>
+<h1>Wiki index</h1>
+{% if pages %}
+<ul>
+    {% for page in pages %}
+    <li><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No pages are available</p>
+{% endif %}
+{% endblock content %}
+
+
