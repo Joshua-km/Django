@@ -4,22 +4,54 @@
 {% block content %}
 <h2>{{title}}</h2>
 <h1>Wiki index</h1>
-{% if pages %}
-   {% for page in pages %}
-<div class="container">
-    <div class="col-xl-">
-        
-      <ul>
+
+
+<div class="container" >
  
-    <li><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a></li>
-   
-</ul>
-    </div>
+  {% if pages %}
+  <ul  class="list-group"  id="id01" >
+    {% for page in pages %}
+   <li class="list" ><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a>
+  </li> 
+   {% endfor %}  
+    </ul> 
+   {% else %}
+<p>No pages are available</p> 
+{% endif %} 
+  
+<script>
+  {
+    var list, i, switching, b, shouldSwitch;
+    list = document.getElementById("id01");
+    switching = true;
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+      // start by saying: no switching is done:
+      switching = false;
+      b = list.getElementsByTagName("LI");
+      // Loop through all list-items:
+      for (i = 0; i < (b.length - 1); i++) {
+        // start by saying there should be no switching:
+        shouldSwitch = false;
+        /* check if the next item should
+        switch place with the current item: */
+        if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+          /* if next item is alphabetically
+          lower than current item, mark as a switch
+          and break the loop: */
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark the switch as done: */
+        b[i].parentNode.insertBefore(b[i + 1], b[i]);
+        switching = true;
+      }
+    }
+  }
+  </script>
 </div>
- {% endfor %}
-{% else %}
-<p>No pages are available</p>
-{% endif %}
 {% endblock content %}
-
-

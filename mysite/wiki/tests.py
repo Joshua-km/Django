@@ -16,3 +16,8 @@ class test(TestCase):
     def test_no_questions(self):
         response = self.client.get(reverse('wiki:index'))
         self.assertContains(response, "No pages are available")
+class test1(TestCase):
+
+    def test_no_questions(self):
+        response = self.client.get(reverse('wiki:index'))
+        self.assertContains(response, "Wiki index")
