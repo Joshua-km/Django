@@ -1,24 +1,33 @@
-
 from django.test import TestCase
-
-import datetime
 
 from django.urls import reverse
 
-from django.test import TestCase
+from wiki.models import Page
 
-from django.utils import timezone
-
-
-# Create your tests here.
-class test(TestCase):
-    
-    def test_no_questions(self):
+class Test1(TestCase):
+    def testreplay(self):
         response = self.client.get(reverse('wiki:index'))
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No pages are available")
 
-class test1(TestCase):
-    def test_no_questions(self):
+class Test2(TestCase):
+    def testreplay(self):
         response = self.client.get(reverse('wiki:index'))
         self.assertContains(response, "Wiki index")
+
+class Test3(TestCase):
+    def testreplay(self):
+        response = self.client.get(reverse('wiki:index'))
+        self.assertContains(response, "login")
+
+class Test4(TestCase):
+    def testreplay(self):
+        response = self.client.get(reverse('wiki:index'))
+        self.assertContains(response, "logout")
+
+
+
+
+
+
 

@@ -1,5 +1,5 @@
 body{
-    background-color: red;
+    background-color: gainsboro;
 }
 li{
  
@@ -9,13 +9,14 @@ li{
 h1{
     text-align: center;
     font-size: 35px; 
-    font-style: italic;
+    font-style: normal ;
+    color: blue;
 }
 .list{
-    border: 100px solid gray;
+    border: 1px solid black;
     margin-bottom: 5px;
     font-size: 18px;
-
+    border-radius:  10px;
 }
 #Css{
     width: 65px;
