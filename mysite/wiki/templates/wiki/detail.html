@@ -6,9 +6,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <nav class="nav">
-      <a class="nav-link" href="{% url 'wiki:index' %}">Home</a> <!--This allows the user to use the links-->
-      <a class="nav-link" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
-      <a class="nav-link" href="{% url 'wiki:upload' %}">upload</a>
+      <a class="nav-link" href="{% url 'wiki:index' %}">Home</a> <!--This is a link for the user this link is so that the user can go back to the home page-->
+      <a class="nav-link" href="{% url 'wiki:edit_page' page.title %}">Edit</a> <!-- this is link takes the user to the page that allows the user to edit pages-->
+      <a class="nav-link" href="{% url 'wiki:upload' %}">upload</a> <!--This  link takes the user to the page where you can upload files to wiki page-->
       {% if request.user.is_authenticated %}
       <a class="nav-link" logout_redirect href="{% url 'wiki:logout' %}" >logout</a><!--This is the way that the user can logout to there account-->
       {% endif %}
