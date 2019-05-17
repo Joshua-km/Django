@@ -1,9 +1,10 @@
 from django.views import generic
+from .models import Page, UserFileUpload
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .form import UploadFileForm
-from .models import Page, UserFileUpload
+
 
 class IndexView(generic.ListView):
     template_name = 'wiki/index.html'
@@ -47,7 +48,7 @@ def save_page(request, pk):
     page.save()
     return redirect ('wiki:detail', pk=pk)
 
-
+@login_required(login_url='wiki:login')
 def upload_file(request):
     context = {}
     if request.method == 'POST':
@@ -58,4 +59,4 @@ def upload_file(request):
         form = UploadFileForm()
     context['form'] = form
     context['files'] = UserFileUpload.objects.all().order_by('upload')
-    return render ('wiki/upload.html', context)
+    return render(request, 'wiki/upload.html', context)

@@ -82,6 +82,8 @@ DATABASES = {
     }
 }
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -118,5 +120,3 @@ LOGIN_REDIRECT_URL = '/wiki/'
 
 LOGOUT_REDIRECT_URL = '/wiki/accounts/login'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'

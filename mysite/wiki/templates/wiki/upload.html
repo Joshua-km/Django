@@ -1,11 +1,12 @@
-{% extends 'mysite/base.html' %}
+
+{% extends 'wiki/base.html' %}
 {% load static %}
 {% block content %}
+<div class="container">
 {% block contentTitle %}Uploaded Files{% endblock %}
-
 <section>
     
-    <form method='POST' enctype='multipart/form-data' action="{% url 'wiki:upload_page' %}">
+    <form method='POST' enctype='multipart/form-data' action="{% url 'wiki:upload' %}">
     {% csrf_token %}
         {{form}}    
     <input type='submit' value="Upload">
@@ -24,4 +25,5 @@
 <p>No uploaded files</p>
 {% endif %}
 </section>
+</div>
 {% endblock %}
