@@ -6,7 +6,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <nav class="nav">
-      <a class="nav-link active" href="#">Active</a>
       <a class="nav-link" href="{% url 'wiki:index' %}">Home</a> <!--This allows the user to use the links-->
       <a class="nav-link" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
       <a class="nav-link" href="{% url 'wiki:upload' %}">upload</a>
@@ -21,7 +20,7 @@
   </nav>
 <h1>{{ page.title }}</h1>
 
-{{page.content}}
+{{page.content | safe}}
 
 
 

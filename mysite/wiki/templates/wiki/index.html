@@ -8,13 +8,13 @@
 
 {% if not request.user.is_authenticated %}
 <div class="login">
-  <a logout_redirect href="{% url 'wiki:login' %}">login</a>
+  <a logout_redirect href="{% url 'wiki:login' %}">login</a> <!--This is the login button this will only be displayed if the user is not login-->
   {% endif %}
 </div>
 
 {% if request.user.is_authenticated %}
 <div class="logout">
-  <a logout_redirect href="{% url 'wiki:logout' %}">logout</a>
+  <a logout_redirect href="{% url 'wiki:logout' %}">logout</a> <!--This is the logout button but this will be dispalyed if the user is login-->
 </div>
 
 {% endif %}
@@ -22,9 +22,9 @@
 
 <h2>{{title}}</h2>
 
-<h1>Wiki index</h1>
+<h1>Wiki index</h1> <!--this is the heading for the home page-->
 
-<link rel="stylesheet" type="text/css" href="{% static 'wiki/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'wiki/style.css' %}"> <!--This is a link for the CSS-->
 
 
 
@@ -47,7 +47,7 @@
 
   {% else %}
 
-  <p>No pages are available</p>
+  <p>No pages are available at the moment</p>
 
   {% endif %}
 
