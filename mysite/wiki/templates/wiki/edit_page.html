@@ -1,21 +1,28 @@
 {% extends 'wiki/base.html' %}
 {% load static %}
+{% load staticfiles %}
 {% block content %}
-{% block contentTitle %} Edit {{page_name}} {% endblock %}
-<header><h3>{{page_name}}</h3></header>
+{% block contentTitle %} Edit {{page_name}}
+<header>
+    <h3>{{page_name}}</h3>
+</header>
+{% endblock %}
+<div>
 
-    <form method="post" action="{% url 'wiki:save_page' page_name %}">
-        
-        {% csrf_token %}
-            <textarea id="id_content" name="content" rows="10" cols="40">
+<form method="post" action="{% url 'wiki:save_page' page_name %}">
+
+    {% csrf_token %}
+    <textarea id="id_content" name="content" rows="10" cols="40">
                     {{content}}
             </textarea>
-            <input type="submit" value="Save">
-        </form>
 
-        <a class="btn btn-primary" 
-        href="{% url 'wiki:detail' page_name %}">Cancel</a>
+            
+</div>
+    <input type="submit" value="Save">
+</form>
+
+<a class="btn btn-primary" href="{% url 'wiki:detail' page_name %}">Cancel</a>
 
 
 
- {% endblock %}
+{% endblock %}
