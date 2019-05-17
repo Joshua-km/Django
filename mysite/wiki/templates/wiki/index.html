@@ -5,18 +5,17 @@
 
 
 {% block content %}
+ {% if not request.user.is_authenticated %}
+ <nav class="navbar navbar-light bg-light justify-content-between">
+  <div class="login">
 
-<nav class="navbar navbar-light bg-light justify-content-between">
+    <a logout_redirect href="{% url 'wiki:login' %}" class="btn btn-danger">login</a>
+    {% endif %}
+
    {% if request.user.is_authenticated %}
   <div class="logout">
     <a logout_redirect href="{% url 'wiki:logout' %}" class="btn btn-danger">logout</a>
-  </div>
-  {% endif %}
-  {% if not request.user.is_authenticated %}
-  <div class="login">
-    <a logout_redirect href="{% url 'wiki:login' %}" class="btn btn-danger">login</a>
 
-  </div>
 
   {% endif %}
 </nav>
