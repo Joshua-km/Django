@@ -3,13 +3,13 @@
 {% block content %}
 
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p>Your username and password didn't match. Please try again.</p> <!--This is an error that will be showne if the user gets there password wrong or there user name-->
 {% endif %}
 
 {% if next %}
     {% if user.is_authenticated %}
     <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
+    please login with an account that has access.</p> <!--This will apper when the user is tring to edit page with out being login -->
     {% else %}
     <p>Please login to see this page.</p>
     {% endif %}

@@ -25,7 +25,7 @@ def view_page(request, pk):
     except Page.DoesNotExist:
         return render(request, 'wiki/create_page.html', {"page_name": pk})
 
-@login_required(login_url='wiki:login')
+@login_required(login_url='wiki:login')#This line of code is making sure that there is a password in place meaning that you have to loging before you can edit a page
 def edit_page(request, pk):
     try:
         page = Page.objects.get(pk=pk)
@@ -37,19 +37,19 @@ def edit_page(request, pk):
                         'page_name': pk,
                         'content': content
                     })
-@login_required(login_url='wiki:login')
+@login_required(login_url='wiki:login')#This line of code is making sure that there is a password in place meaning that you have to loging before you can edit a page
 def save_page(request, pk):
     content = request.POST["content"]
     try:
         page = Page.objects.get(pk=pk)
         page.content = content
-    except Page.DoesNotExist:
+    except Page.DoesNotExist: #This is erro that will be pop up if the page they are looking does not exist
         page = Page(title=pk, content=content)
-    page.save()
+    page.save()#this is so thast user can save the page once they have made it.
     return redirect ('wiki:detail', pk=pk)
 
-@login_required(login_url='wiki:login')
-def upload_file(request):
+@login_required(login_url='wiki:login')#This line of code is making sure that there is a password in place meaning that you have to loging before you can edit a page
+def upload_file(request):# this is so the user of the wiki page can have way so they can upload there owne files.
     context = {}
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
