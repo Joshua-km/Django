@@ -25,6 +25,11 @@ class Test4(TestCase):
         response = self.client.get(reverse('wiki:index'))
         self.assertContains(response, "logout")
 
+class Test5(TestCase):
+    def testreplay(self):
+        response = self.client.get(reverse('wiki:upload'))
+        self.assertContains(response, "No uploaded files")
+
 
 
 
