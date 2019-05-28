@@ -9,7 +9,7 @@ class Page(models.Model):
 
     title = models.CharField(max_length=64, primary_key=True)
     content = models.TextField()
-
+    counter = models.IntegerField(default=1)
 
 
     def __str__(self):

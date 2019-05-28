@@ -4,7 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .form import UploadFileForm
-
+from django.http import HttpResponse
+from django.db.models import F
 
 class IndexView(generic.ListView):
     template_name = 'wiki/index.html'
@@ -21,6 +22,9 @@ class DetailView(generic.DetailView):
 def view_page(request, pk):
     try:
         page = Page.objects.get(pk = pk)
+        page.counter = F('counter') + 1
+        page.save(update_fields=['counter'])
+        page.refresh_from_db()
         return render(request, 'wiki/detail.html', {"page": page})
     except Page.DoesNotExist:
         return render(request, 'wiki/create_page.html', {"page_name": pk})
