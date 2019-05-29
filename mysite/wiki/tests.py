@@ -43,6 +43,23 @@ class Test5(TestCase):
         self.assertContains(response, "Username:")
 
 
+class Test6(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user('TestUser', 'TestUser@gmail.com', 'testingpassword')
+
+    def testreplay(self):
+        self.client.login(username='TestUser', password='testingpassword')
+        response = self.client.get('/wiki/upload', follow=True)
+        self.assertContains(response, "upload")
+
+    def test_edit_page(self):
+        self.client.login(username='TestUser', password='testingpassword')
+        response = self.client.post('/wiki/editing/edit', follow=True)
+        self.assertContains(response, 'editing')
+
+
+
+
 
 
 
