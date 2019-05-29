@@ -22,8 +22,8 @@ class DetailView(generic.DetailView):
 def view_page(request, pk):
     try:
         page = Page.objects.get(pk = pk)
-        page.counter = F('counter') + 1
-        page.save(update_fields=['counter'])
+        page.counter = F('counter') + 1 # This is making sure that the counter will incress by one every time someone vists the page.
+        page.save(update_fields=['counter']) # This is making sure that counter is being update every time vists the wiki page
         page.refresh_from_db()
         return render(request, 'wiki/detail.html', {"page": page})
     except Page.DoesNotExist:
