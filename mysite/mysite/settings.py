@@ -120,3 +120,21 @@ LOGIN_REDIRECT_URL = '/wiki/'
 
 LOGOUT_REDIRECT_URL = '/wiki/accounts/login'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django.server': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+} 

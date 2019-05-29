@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .form import UploadFileForm
 from django.http import HttpResponse
 from django.db.models import F # this is for the page counter
+import logging
+
+logger = logging.getLogger(__name__)
 
 class IndexView(generic.ListView):
     template_name = 'wiki/index.html'
