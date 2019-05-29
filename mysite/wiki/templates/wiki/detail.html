@@ -15,12 +15,14 @@
 
     </nav>
   </nav>
+
 <h1>{{ page.title }}</h1>
-
+<div class="container1">
 {{page.content | safe}}
+</div> 
+
+<footer class="fixed-bottom">
 <div class="text-center">This Page has been visited {{page.counter}} times.</div> <!--This is the page counter and the job of this is to display how many time the page has been visited by different users-->
-
-
-
+</footer>
 
 {% endblock %}

@@ -27,5 +27,8 @@ object-position: right
 }
 .footer{
     /*border: 2px solid black;*/
-    padding-top: 15px
+    padding-top: 15px;
+}
+.container1{
+    border: 1px solid black;
 }
