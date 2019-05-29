@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from wiki.models import Page
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User # This is import enables me to test the login & logout syteame
 
 class Test1(TestCase):#This is testing to check that there is a syste in place if there is no page.
     def testreplay(self):
