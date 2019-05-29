@@ -12,7 +12,7 @@ class Test1(TestCase):#This is testing to check that there is a syste in place i
 class Test2(TestCase):# This is making sure that there is a title on the page.
     def testreplay(self):
         response = self.client.get(reverse('wiki:index'))
-        self.assertContains(response, "Wiki index") 
+        self.assertContains(response, "Wiki Index") 
 
 class Test3(TestCase):# This is test to see if there a way that the user can login to the Wiki
     def testreplay(self):

@@ -8,13 +8,14 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="nav-link" href="{% url 'wiki:upload' %}">upload</a> <!--This  link takes the user to the page where you can upload files to wiki page-->
+    <nav class="nav">
+  <a class="nav-link" href="{% url 'wiki:upload' %}">Upload</a> <!--This  link takes the user to the page where you can upload files to wiki page-->
   {% if request.user.is_authenticated %}
-  <a class="nav-link" logout_redirect href="{% url 'wiki:logout' %}" >logout</a><!--This is the way that the user can logout to there account-->
+  <a class="nav-link" logout_redirect href="{% url 'wiki:logout' %}" >Logout</a><!--This is the way that the user can logout to there account-->
   {% else %}
-  <a class="nav-link" logout_redirect href="{% url 'wiki:login' %}" >login</a> <!--This is the way that the user can login to there account-->
+  <a class="nav-link" logout_redirect href="{% url 'wiki:login' %}" >Login</a> <!--This is the way that the user can login to there account-->
   {% endif %}
-
+</nav>
 </nav>
 
 
@@ -23,7 +24,7 @@
 
 <h2>{{title}}</h2>
 
-<h1>Wiki index</h1> <!--this is the heading for the home page-->
+<h1>Wiki Index</h1> <!--this is the heading for the home page-->
 
 <link rel="stylesheet" type="text/css" href="{% static 'wiki/style.css' %}"> <!--This is a link for the CSS-->
 
