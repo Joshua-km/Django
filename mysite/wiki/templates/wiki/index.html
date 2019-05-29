@@ -7,6 +7,19 @@
 {% block content %}
 
 {% if not request.user.is_authenticated %}
+
+<nav class="nav">
+  <a class="nav-link" href="{% url 'wiki:index' %}">Home</a> <!--This is a link for the user this link is so that the user can go back to the home page-->
+  <a class="nav-link" href="{% url 'wiki:create_page' %}">create</a> <!-- This is link takes the user to the page that allows the user to edit pages-->
+  <a class="nav-link" href="{% url 'wiki:upload' %}">upload</a> <!--This  link takes the user to the page where you can upload files to wiki page-->
+  {% if request.user.is_authenticated %}
+  <a class="nav-link" logout_redirect href="{% url 'wiki:logout' %}" >logout</a><!--This is the way that the user can logout to there account-->
+  {% endif %}
+  {% if not request.user.is_authenticated %}
+  <a class="nav-link" logout_redirect href="{% url 'wiki:login' %}" >login</a> <!--This is the way that the user can login to there account-->
+  {% endif %}
+
+</nav>
 <div class="login">
   <a logout_redirect href="{% url 'wiki:login' %}">login</a> <!--This is the login button this will only be displayed if the user is not login-->
   {% endif %}

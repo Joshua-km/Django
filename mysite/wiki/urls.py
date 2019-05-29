@@ -8,6 +8,7 @@ urlpatterns = [
     path('upload/', views.upload_file, name='upload'),
     path('<str:pk>/edit',views.edit_page, name='edit_page'),
     path('<str:pk>/save',views.save_page, name='save_page'),
+    path('create',views.edit_page, name='create_page'),
     path('<str:pk>/', views.view_page, name='detail'),
  
 ]
