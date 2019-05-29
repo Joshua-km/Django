@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .form import UploadFileForm
 from django.http import HttpResponse
-from django.db.models import F
+from django.db.models import F # this is for the page counter
 
 class IndexView(generic.ListView):
     template_name = 'wiki/index.html'
