@@ -1,32 +1,46 @@
 from django.test import TestCase
 from django.urls import reverse
 from wiki.models import Page
+from django.contrib.auth.models import User
 
-class Test1(TestCase):
+class Test1(TestCase):#This is testing to check that there is a syste in place if there is no page.
     def testreplay(self):
         response = self.client.get(reverse('wiki:index'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "No pages are available")#this is testing to check that there is a syste in place if there is no page.
+        self.assertContains(response, "No pages are available")
 
-class Test2(TestCase):
+class Test2(TestCase):# This is making sure that there is a title on the page.
     def testreplay(self):
         response = self.client.get(reverse('wiki:index'))
-        self.assertContains(response, "Wiki index") # This is making sure that there is a titl on the page.
+        self.assertContains(response, "Wiki index") 
 
-class Test3(TestCase):
+class Test3(TestCase):# This is test to see if there a way that the user can login to the Wiki
     def testreplay(self):
         response = self.client.get(reverse('wiki:index'))
-        self.assertContains(response, "login")# this is test to see if there a login button
+        self.assertContains(response, "login")
 
-class Test4(TestCase):
+class Test4(TestCase):# This is test to see if there a way that the user can logout of the Wiki
     def testreplay(self):
         response = self.client.get(reverse('wiki:index'))
-        self.assertContains(response, "logout") # this is testing to make sure that there is a logout button for the user
+        self.assertContains(response, "logout")
+
+
 
 class Test5(TestCase):
-    def testreplay(self):
-        response = self.client.get(reverse('wiki:upload/'))
-        self.assertContains(response, "No uploaded files") # this is testing to make sure that there is a logout button for the user
+    def setUp(self):
+        self.user = User.objects.create_user('TestUser', 'TestUser@mywiki.com', 'TestUserpassword')
+
+    def testLogin(self):  #This is testing to make sure that the login works
+        self.client.login(username='TestUser', password='TestUserpassword')
+        response = self.client.get(reverse('wiki:index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "logout")
+
+    def testLogout(self): #This is testing to make sure that the logout works
+        self.client.logout()
+        response = self.client.get(reverse('wiki:logout'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Username:")
 
 
 
