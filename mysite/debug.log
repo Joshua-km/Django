@@ -51,3 +51,5 @@
 "GET /wiki/ HTTP/1.1" 500 155926
 "GET /wiki/ HTTP/1.1" 500 156187
 "GET /favicon.ico HTTP/1.1" 404 2204
+"GET / HTTP/1.1" 404 2153
+"GET /admijn HTTP/1.1" 404 2189
