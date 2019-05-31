@@ -22,9 +22,7 @@ h1{
     width: 60px;
     height: 35px;
 }
-.login{
-object-position: right 
-}
+
 .container_for_text{
    /* border: 1px solid black;*/ /*This is comment out because I have used this to see where my container is located on the screen*/
     padding-right: 5px;
