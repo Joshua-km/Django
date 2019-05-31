@@ -1,7 +1,7 @@
 body{
     background-color: gainsboro; /*This is the color of the back ground of the wiki*/
 }
-li{
+li{ /*This CSS is for the list I am using for the index page.*/
  
     text-align: left;
     list-style-type: none;

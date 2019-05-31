@@ -54,7 +54,7 @@ class Test5(TestCase):
 class Test6(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
-            'TestUser', 'TestUser@gmail.com', 'testingpassword')
+            'TestUser', 'TestUser@gmail.com', 'testingpassword') # what this is doing is that this tester can have it's owne systeam to loging in to the edit page and the upload
 
     def testreplay(self):  # This test is testing to make sure that the upload page name is in the URL
         self.client.login(username='TestUser', password='testingpassword')
