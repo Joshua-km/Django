@@ -24,9 +24,10 @@ h1{
 }
 
 .container_for_text{
-   /* border: 1px solid black;*/ /*This is comment out because I have used this to see where my container is located on the screen*/
+    border: 1px solid black; /*This is comment out because I have used this to see where my container is located on the screen*/
     padding-right: 9px;
     padding-left: 9px;
     color: blue;
-    font-size: 16px
+    font-size: 16px;
+
 }

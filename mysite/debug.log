@@ -82,3 +82,6 @@
 "GET / HTTP/1.1" 404 2153
 "GET /static/icons/favicon.png HTTP/1.1" 404 1675
 "GET / HTTP/1.1" 404 2153
+"GET / HTTP/1.1" 404 2153
+"GET /favicon.ico HTTP/1.1" 404 2204
+"GET /favicon.ico HTTP/1.1" 404 2204
