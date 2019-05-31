@@ -47,12 +47,12 @@ class Test6(TestCase):
     def setUp(self):
         self.user = User.objects.create_user('TestUser', 'TestUser@gmail.com', 'testingpassword')
 
-    def testreplay(self):
+    def testreplay(self): # This test is testing to make sure that the upload page name is in the URL
         self.client.login(username='TestUser', password='testingpassword')
         response = self.client.get('/wiki/upload', follow=True)
         self.assertContains(response, "upload")
 
-    def test_edit_page(self):
+    def test_edit_page(self): # This test is testing to make sure that the edit page name is in the URL
         self.client.login(username='TestUser', password='testingpassword')
         response = self.client.post('/wiki/editing/edit', follow=True)
         self.assertContains(response, 'editing')
